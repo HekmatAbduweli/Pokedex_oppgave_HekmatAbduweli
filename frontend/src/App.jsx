@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from './components/Home';
 import Teams from "./components/Teams";
 import Type from "./components/Type";
@@ -8,14 +8,17 @@ import Pokemon from "./components/Pokemon";
 
 function App() {
   const [inputVal, setInputVal] = useState();
-  const [PokemonLink, setPokemonLink] = useState();
+  const navigate = useNavigate();
 
   const inputChange = (e) => {
     setInputVal(e.target.value);
   };
 
-  const submit = () => {
-    setPokemonLink(inputVal);
+
+  // fikk error om noe med warnig jeg sendte error fra log og koden min og chatgpt ambefalte meg å bruke searchresult via usenavigate og submit via onsubmit
+  const submit = (e) => {
+    e.preventDefault();
+    navigate(`/searchresult/${inputVal}`);
   }
 
   return (
@@ -24,11 +27,10 @@ function App() {
         <header>
           <a href="/">UNI POKEDEX</a>
           <a href="/teams">Teams</a>
-          <form>
-            <input type="text" value={inputVal} onChange={inputChange} />
-            <button onClick={submit}>
+          <form onSubmit={submit}>
+            <input type="text" onChange={inputChange} />
+            <button>
               <img src="search-icon.png" alt="search" />
-              <Link to={`/searchresult/${PokemonLink}`}></Link>
             </button>
           </form>
         </header>
