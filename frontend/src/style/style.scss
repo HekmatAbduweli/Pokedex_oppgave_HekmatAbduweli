@@ -3,4 +3,18 @@
     h1{
         font-size: 30px;
     }
+
+    nav {
+        form{
+            input{
+                padding: 5px;
+            }
+            button{
+                padding: 5px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
 }

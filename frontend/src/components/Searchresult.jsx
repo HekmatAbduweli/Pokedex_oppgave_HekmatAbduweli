@@ -1,3 +1,20 @@
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
 export default function Searchresult() {
-  return <h1>Searchresults</h1>;
+  const [result, setResult] = useState();
+
+  const { pokemon } = useParams();
+
+  
+  return (
+    <>
+      <h1>Resultater</h1>
+      <ul>
+        <li>
+          <h2>{pokemon}</h2>
+        </li>
+      </ul>
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import '../style/color.css'
 
 export default function Type() {
   const { type } = useParams();
@@ -29,7 +30,7 @@ export default function Type() {
         {/* for å begrense pokemon til 20 søkte jeg på google limiting map og fant
         jeg løsning via stackoverflow "https://stackoverflow.com/a/42374933" */}
         {typePokemons.slice(0, 20).map((p) => (
-          <li key={p.name}>
+          <li key={p.name} className={p.name}>
             <Link to={`/pokemons/${p.name}`}>{p.name}</Link>
           </li>
         ))}
