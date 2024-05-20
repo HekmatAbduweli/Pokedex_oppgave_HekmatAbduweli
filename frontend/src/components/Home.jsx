@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+//import "../style/color.css";
 
 export default function Home() {
   const [pokemon, setPokemon] = useState([]);
@@ -18,7 +19,7 @@ export default function Home() {
         const pokemonData = await pokemonResponse.json();
         setPokemon(pokemonData.results);
 
-        const typeResponse = await fetch("https://pokeapi.co/api/v2/type");
+        const typeResponse = await fetch("https://pokeapi.co/api/v2/type?limit=18");
         const typeData = await typeResponse.json();
         setPokemonTypes(typeData.results);
       } catch (error) {
@@ -30,22 +31,24 @@ export default function Home() {
 
   return (
     <>
-      <h1>Main Pokemons</h1>
-      <ul>
-        {pokemon.map((pokemon) => (
-          <li key={pokemon.name}>
-            <Link to={`/pokemons/${pokemon.name}`}>{pokemon.name}</Link>
-          </li>
-        ))}
-      </ul>
-      <h2>Types</h2>
-      <ul>
-        {pokemonTypes.map((type) => (
-          <li key={type.name}>
-            <Link to={`/${type.name}`}>{type.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <section className="home-page">
+        <h1 className="title">Main Pokemons</h1>
+        <ul>
+          {pokemon.map((pokemon) => (
+            <li key={pokemon.name} className={`name ${pokemon.name}`}>
+              <Link to={`/pokemons/${pokemon.name}`}>{pokemon.name}</Link>
+            </li>
+          ))}
+        </ul>
+        <h2 className="title">Types</h2>
+        <ul>
+          {pokemonTypes.map((type) => (
+            <li key={type.name} className={`name ${type.name}`}>
+              <Link to={`/${type.name}`}>{type.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }

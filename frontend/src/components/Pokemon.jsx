@@ -50,33 +50,54 @@ export default function Pokemon() {
 
   return (
     <>
-      <h1>{pokemon}</h1>
-      {/* jeg kunne ikke hente dataene fordi jeg har ikke brukt spørsmålstegn til å sjekke thisPokemon. 
-      Jeg har sente feilkoden til chat gpt og koden min og chatgpt git meg kode for å sjekke om data i thisPokemon eksisterer. 
-      Koden er klik slik jeg fikk
-      "thisPokemon.types && thisPokemon.types.map". 
-      Da jeg husket at jeg kan bruke spørsmålstegn, men her måtte jeg plassere forskjellig sted for at den skal funke */}
-      <img src={thisPokemon?.sprites.front_default} alt={thisPokemon?.name} />
-      <p>Types: {thisPokemon?.types.map((t) => t.type.name).join(", ")}</p>
-      <p>Stats</p>
-      <ul>
-        {thisPokemon?.stats.map((s) => (
-          <li key={s.stat.name}>
-            {s.stat.name}: {s.base_stat}
-          </li>
-        ))}
-      </ul>
-      <p>Ablibities</p>
-      <ul>
-        {pokemonAbility?.map((a, i) => (
-          <li key={i}>
-            <h2>{a.name}</h2>
-            <strong>Effect</strong>: {a.effect}
-            <br />
-            <strong>Short effect</strong>: {a.shortEffect}
-          </li>
-        ))}
-      </ul>
+      <section className="pokemon-card">
+        <section className="row">
+          <section className="pokemon-name">
+            <h1 className="title">{pokemon}</h1>
+            {/* jeg kunne ikke hente dataene fordi jeg har ikke brukt spørsmålstegn til å sjekke thisPokemon. 
+            Jeg har sente feilkoden til chat gpt og koden min og chatgpt git meg kode for å sjekke om data i thisPokemon eksisterer. 
+            Koden er klik slik jeg fikk
+            "thisPokemon.types && thisPokemon.types.map". 
+            Da jeg husket at jeg kan bruke spørsmålstegn, men her måtte jeg plassere forskjellig sted for at den skal funke */}
+            <img
+              src={thisPokemon?.sprites.other["dream_world"].front_default}
+              alt={thisPokemon?.name}
+            />
+          </section>
+          <section className="detail">
+            <h1 className="title">Type(s)</h1>
+            <ul className="types">
+              {thisPokemon?.types.map((t) => (
+                <li key={t.type.name} className="title">
+                  {t.type.name}
+                </li>
+              ))}
+            </ul>
+            <h1 className="title">Stats</h1>
+            <ul className="stats">
+              {thisPokemon?.stats.map((s) => (
+                <li key={s.stat.name} className="title">
+                  <span className="stats-name">{s.stat.name}</span>{" "}
+                  <span>{s.base_stat}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </section>
+        <section className="abilities">
+          <h1 className="title">Ablibities</h1>
+          <ul>
+            {pokemonAbility?.map((a, i) => (
+              <li key={i}>
+                <h3>{a.name}</h3>
+                <strong>Effect</strong>: {a.effect}
+                <br />
+                <strong>Short effect</strong>: {a.shortEffect}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </section>
     </>
   );
 }

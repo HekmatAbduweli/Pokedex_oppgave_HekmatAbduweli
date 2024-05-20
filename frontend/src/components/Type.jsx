@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
-import '../style/color.css'
+//import '../style/color.css'
 
 export default function Type() {
   const { type } = useParams();
@@ -25,7 +25,7 @@ export default function Type() {
 
   return (
     <>
-      <h1>{type}</h1>
+      <h1 className="title">{type}</h1>
       <ul>
         {/* for å begrense pokemon til 20 søkte jeg på google limiting map og fant
         jeg løsning via stackoverflow "https://stackoverflow.com/a/42374933" */}
