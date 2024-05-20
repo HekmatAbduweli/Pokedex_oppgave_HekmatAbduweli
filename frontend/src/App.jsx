@@ -18,7 +18,7 @@ function App() {
   // fikk error om noe med warnig jeg sendte error fra log og koden min og chatgpt ambefalte meg å bruke searchresult via usenavigate og submit via onsubmit
   const submit = (e) => {
     e.preventDefault();
-    navigate(`/searchresult/${inputVal}`);
+    navigate(`/searchresult/${inputVal.toLowerCase()}`);
   };
 
   return (

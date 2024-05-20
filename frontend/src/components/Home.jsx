@@ -33,7 +33,7 @@ export default function Home() {
     <>
       <section className="home-page">
         <h1 className="title">Main Pokemons</h1>
-        <ul>
+        <ul className="home-pokemons">
           {pokemon.map((pokemon) => (
             <li key={pokemon.name} className={`name ${pokemon.name}`}>
               <Link to={`/pokemons/${pokemon.name}`}>{pokemon.name}</Link>
@@ -41,7 +41,7 @@ export default function Home() {
           ))}
         </ul>
         <h2 className="title">Types</h2>
-        <ul>
+        <ul className="home-types">
           {pokemonTypes.map((type) => (
             <li key={type.name} className={`name ${type.name}`}>
               <Link to={`/${type.name}`}>{type.name}</Link>

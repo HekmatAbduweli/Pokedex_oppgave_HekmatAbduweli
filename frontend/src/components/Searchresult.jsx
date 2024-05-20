@@ -35,7 +35,7 @@ export default function Searchresult() {
       <ul>
         <li>
           <Link to={`/pokemons/${result?.name}`}>
-            <h2>{result?.name}</h2>
+            <h2>{result?.name.toUpperCase()}</h2>
             <img src={result?.sprites.front_default} alt={result?.name} />
           </Link>
         </li>

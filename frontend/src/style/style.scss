@@ -56,15 +56,17 @@
       }
     }
     main {
-      .home-page {
+      .home-page,
+      .type-page {
         h1 {
           font-size: 50px;
         }
         ul {
-          display: inline-flex;
+          display: flex;
+          flex-wrap: wrap;
           padding: 0;
           li {
-            margin-right: 5px;
+            margin: 10px 0 10px 5px;
             padding-right: 5px;
             list-style: none;
           }
@@ -83,13 +85,13 @@
           .pokemon-name {
             img {
               width: 500px;
-              margin-right: 80px;
             }
           }
 
           .detail {
             width: 600px;
             height: auto;
+            margin: 0 40px;
             .types {
               display: flex;
               li {
@@ -130,27 +132,57 @@
     }
   }
 
-//   siden har jeg ikke så mye tid spurte jeg chatgpt til å lage responsive stilen til nettsiden, men den er ikke helt perfekt og trenger endringer
+  //   siden har jeg ikke så mye tid spurte jeg chatgpt til å lage responsive stilen til nettsiden, men den er ikke helt perfekt og trenger endringer
   @media (max-width: 1200px) {
     nav {
       width: 80%;
-    }
-    main {
-      .pokemon-card {
-        .row {
-          flex-direction: column;
-          align-items: center;
-          img {
-            width: 400px;
-            margin: 20px 0;
+      header {
+        flex-direction: column;
+        align-items: center;
+        form {
+          margin: 20px auto;
+        }
+      }
+      main {
+        .home-page {
+          .home-pokemons {
+            display: grid;
+            grid-template-columns: auto auto auto;
           }
-          .detail {
-            width: 100%;
+
+          .home-types {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
           }
         }
-        .abilities {
-          ul {
-            padding: 0 20px;
+
+        ul {
+          li {
+            padding: 15px;
+          }
+        }
+
+        .pokemon-card {
+          .row {
+            flex-direction: column;
+            align-items: center;
+            .pokemon-name {
+              text-align: center;
+              img {
+                width: 500px;
+              }
+            }
+
+            .detail {
+              width: 100%;
+              margin: 0 !important;
+              display: block;
+            }
+          }
+          .abilities {
+            ul {
+              padding: 0 20px;
+            }
           }
         }
       }
@@ -159,20 +191,42 @@
 
   @media (max-width: 768px) {
     nav {
+      width: 90%;
+      header {
+        flex-direction: column;
+        align-items: center;
+        form {
+          margin: 15px auto;
+          width: 100%;
+        }
+      }
     }
     main {
       .home-page {
-        h1 {
-          font-size: 40px;
+        text-align: center;
+        .home-pokemons {
+          grid-template-columns: auto auto !important;
+          justify-content: center;
+        }
+        .home-types {
+          grid-template-columns: auto auto auto auto !important;
+        }
+      }
+      ul {
+        li {
+          padding: 10px;
         }
       }
       .pokemon-card {
-        h1 {
-          font-size: 20px;
-        }
         .row {
-          img {
-            width: 300px;
+          .pokemon-name {
+            img {
+              width: 400px;
+              margin-right: 0 !important;
+            }
+          }
+          .detail {
+            width: 100%;
           }
         }
         .abilities {
@@ -187,25 +241,42 @@
   @media (max-width: 480px) {
     nav {
       width: 95%;
-      form {
-        width: 100%;
-        input {
-          padding: 10px;
+      header {
+        flex-direction: column;
+        align-items: center;
+        form {
+          margin: 10px auto;
+          width: 100%;
         }
       }
     }
     main {
       .home-page {
+        text-align: center;
+        .home-pokemons {
+          grid-template-columns: auto !important;
+        }
+        .home-types {
+          grid-template-columns: auto auto !important;
+        }
         h1 {
           font-size: 30px;
         }
       }
-      .pokemon-card {
-        h1 {
-          font-size: 18px;
+      ul {
+        li {
+          padding: 5px;
         }
+      }
+      .pokemon-card {
         .row {
-          img {
+          .pokemon-name {
+            img {
+              width: 100% !important;
+              margin-right: 0 !important;
+            }
+          }
+          .detail {
             width: 100%;
           }
         }

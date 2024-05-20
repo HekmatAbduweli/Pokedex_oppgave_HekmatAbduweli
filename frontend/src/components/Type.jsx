@@ -25,16 +25,18 @@ export default function Type() {
 
   return (
     <>
-      <h1 className="title">{type}</h1>
-      <ul>
-        {/* for å begrense pokemon til 20 søkte jeg på google limiting map og fant
+      <section className="type-page">
+        <h1 className="title">{type}</h1>
+        <ul>
+          {/* for å begrense pokemon til 20 søkte jeg på google limiting map og fant
         jeg løsning via stackoverflow "https://stackoverflow.com/a/42374933" */}
-        {typePokemons.slice(0, 20).map((p) => (
-          <li key={p.name} className={p.name}>
-            <Link to={`/pokemons/${p.name}`}>{p.name}</Link>
-          </li>
-        ))}
-      </ul>
+          {typePokemons.slice(0, 20).map((p) => (
+            <li key={p.name} className={`name ${p.name}`}>
+              <Link to={`/pokemons/${p.name}`}>{p.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }
