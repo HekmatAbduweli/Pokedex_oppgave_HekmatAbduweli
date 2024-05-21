@@ -32,6 +32,7 @@ export default function Type() {
   }, [type]);
 
   return (
+    //her skriver ut pokemon som tilhører i en type 
     <>
       <section className="type-page">
         <h1 className="title">{type}</h1>

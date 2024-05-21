@@ -31,6 +31,7 @@ export default function Searchresult() {
   }
 
   return (
+    // her viser søkeresultat hvis den finner ikke skriver ut fikker ikke noe om "det du har skrev på search-bar"
     <>
       <section className="result-page">
         <h1>Resultater</h1>

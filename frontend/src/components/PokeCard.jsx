@@ -5,7 +5,7 @@ export default function PokeCard({ pokemon }) {
 
     const [pokemonId, setPokemonId] = useState()
 
-
+//liten funksjon hvor den viser slik ut "002, 034, 130"
     useEffect(() => {
        if (pokemon?.id) {
          if (pokemon.id < 10) {
@@ -19,6 +19,7 @@ export default function PokeCard({ pokemon }) {
     },[pokemon?.id])
       
   return (
+    //her opretter pokemon kort
     <>
       <li
         key={pokemon.name}

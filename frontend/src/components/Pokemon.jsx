@@ -50,6 +50,7 @@ export default function Pokemon() {
   }, [pokemon]);
 
   return (
+    //her skriver ut informasjon til pokemon
     <>
       <section className="pokemon-card">
         <section className="row">

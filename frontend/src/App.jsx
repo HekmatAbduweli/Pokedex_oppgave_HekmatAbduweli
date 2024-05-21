@@ -8,6 +8,7 @@ import Header from "./components/Header";
 
 function App() {
   return (
+    //her router til sider
     <>
       <nav>
         <Header/>

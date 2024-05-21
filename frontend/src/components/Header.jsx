@@ -16,7 +16,8 @@ export default function Header() {
       e.preventDefault();
       navigate(`/searchresult/${inputVal.toLowerCase()}`);
     };
-    return (
+  return (
+      //her skriver ut header skanppen skil uni pokedex teams og search-bar
       <>
         <header>
           <span>

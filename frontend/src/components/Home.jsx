@@ -6,6 +6,7 @@ import TypeCard from "./TypeCard";
 //import "../style/color.css";
 
 export default function Home() {
+  //her fetcher og skriver ut pokemon kort og type kort alle data blir sendt til podecard og typecard
   const [pokemon, setPokemon] = useState([]);
   const [pokemonTypes, setPokemonTypes] = useState([]);
 

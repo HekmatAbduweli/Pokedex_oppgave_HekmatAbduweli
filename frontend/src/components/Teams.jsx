@@ -17,3 +17,5 @@
       </section>
     );
   }
+
+  //her skulle skrive ut tre teams 
