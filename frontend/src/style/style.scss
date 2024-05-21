@@ -28,10 +28,16 @@
     border-radius: 10px;
   }
 
-  .btn_style{
+  .btn_style {
     margin: 10px;
     list-style: none;
     padding-left: 10px;
+    h3:hover {
+      color: cadetblue;
+    }
+    p{
+      font-weight: lighter;
+    }
   }
 
   nav {
@@ -155,12 +161,12 @@
           }
         }
       }
-      .result-page{
-          ul{
-            padding: 0;
-            list-style: none;
-          }
+      .result-page {
+        ul {
+          padding: 0;
+          list-style: none;
         }
+      }
     }
   }
 
@@ -222,7 +228,6 @@
             }
           }
         }
-        
       }
     }
   }

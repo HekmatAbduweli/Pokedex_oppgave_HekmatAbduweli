@@ -39,9 +39,7 @@ export default function Type() {
           {/* for å begrense pokemon til 20 søkte jeg på google limiting map og fant
         jeg løsning via stackoverflow "https://stackoverflow.com/a/42374933" */}
           {typePokemons.slice(0, 20).map((p) => (
-            <li key={p.name}>
-              <PokeCard key={p.name} pokemon={p} />
-            </li>
+            <PokeCard key={p.name} pokemon={p} />
           ))}
         </ul>
       </section>

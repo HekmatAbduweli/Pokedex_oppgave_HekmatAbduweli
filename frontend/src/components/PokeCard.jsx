@@ -1,7 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function PokeCard({ pokemon }) {
+
+    const [pokemonId, setPokemonId] = useState()
+
+
+    useEffect(() => {
+       if (pokemon?.id) {
+         if (pokemon.id < 10) {
+           setPokemonId(`00${pokemon.id}`);
+         } else if (pokemon.id < 100) {
+           setPokemonId(`0${pokemon.id}`);
+         } else {
+           setPokemonId(pokemon.id);
+         }
+       } 
+    },[pokemon?.id])
+      
   return (
     <>
       <li
@@ -11,6 +27,7 @@ export default function PokeCard({ pokemon }) {
         <Link to={`/pokemons/${pokemon?.name}`}>
           <img src={pokemon?.sprites?.front_default} alt={pokemon?.name} />
           <h3 className="initial_to_up">{pokemon?.name}</h3>
+          <p>#{pokemonId}</p>
         </Link>
       </li>
     </>

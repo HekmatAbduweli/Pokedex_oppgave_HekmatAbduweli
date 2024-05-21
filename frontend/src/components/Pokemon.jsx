@@ -69,7 +69,7 @@ export default function Pokemon() {
             <h1 className="title">Type(s)</h1>
             <ul className="pokemon-types">
               {thisPokemon?.types.map((t) => (
-                <TypeCard key={t.type} type={t.type} />
+                <TypeCard key={t.type.name} type={t.type} />
               ))}
             </ul>
             <h1 className="title">Stats</h1>
@@ -88,7 +88,7 @@ export default function Pokemon() {
           <ul>
             {pokemonAbility?.map((a, i) => (
               <li key={i}>
-                <h3>{a.name}</h3>
+                <h3 className="initial_to_up">{a.name}</h3>
                 <strong>Effect</strong>: {a.effect}
                 <br />
                 <strong>Short effect</strong>: {a.shortEffect}
