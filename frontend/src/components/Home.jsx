@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import PokeCard from "./PokeCard";
+import TypeCard from "./TypeCard";
 //import "../style/color.css";
 
 export default function Home() {
@@ -17,7 +19,16 @@ export default function Home() {
           "https://pokeapi.co/api/v2/pokemon?limit=9"
         );
         const pokemonData = await pokemonResponse.json();
-        setPokemon(pokemonData.results);
+        
+
+        //kunne ikke få ut bilder etter jeg har lagd pokecard komponenter og spurte hjelp fra chatgpt for å få bildet ut 
+        const detailedPokemonPromises = pokemonData.results.map((p) =>
+          fetch(p.url).then((res) => res.json())
+        );
+        const detailedPokemon = await Promise.all(detailedPokemonPromises);
+        setPokemon(detailedPokemon);
+
+
 
         const typeResponse = await fetch("https://pokeapi.co/api/v2/type?limit=18");
         const typeData = await typeResponse.json();
@@ -34,18 +45,14 @@ export default function Home() {
       <section className="home-page">
         <h1 className="title">Main Pokemons</h1>
         <ul className="home-pokemons">
-          {pokemon.map((pokemon) => (
-            <li key={pokemon.name} className={`name ${pokemon.name}`}>
-              <Link to={`/pokemons/${pokemon.name}`}>{pokemon.name}</Link>
-            </li>
+          {pokemon?.map((pokemon) => (
+              <PokeCard key={pokemon.name} pokemon={pokemon} />
           ))}
         </ul>
         <h2 className="title">Types</h2>
         <ul className="home-types">
           {pokemonTypes.map((type) => (
-            <li key={type.name} className={`name ${type.name}`}>
-              <Link to={`/${type.name}`}>{type.name}</Link>
-            </li>
+              <TypeCard key={type.name} type={type}/>
           ))}
         </ul>
       </section>

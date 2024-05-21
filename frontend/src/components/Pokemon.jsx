@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import TypeCard from "./TypeCard";
 
 export default function Pokemon() {
   const { pokemon } = useParams();
@@ -66,11 +67,9 @@ export default function Pokemon() {
           </section>
           <section className="detail">
             <h1 className="title">Type(s)</h1>
-            <ul className="types">
+            <ul className="pokemon-types">
               {thisPokemon?.types.map((t) => (
-                <li key={t.type.name} className="title">
-                  {t.type.name}
-                </li>
+                <TypeCard key={t.type} type={t.type} />
               ))}
             </ul>
             <h1 className="title">Stats</h1>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import PokeCard from "./PokeCard";
 
 export default function Searchresult() {
   const [result, setResult] = useState();
@@ -26,20 +27,20 @@ export default function Searchresult() {
   }, [pokemon]);
 
   if (na) {
-    return <p>Finner ikke noe om "{pokemon}"</p>
+    return <p>Finner ikke noe om "{pokemon}"</p>;
   }
 
   return (
     <>
-      <h1>Resultater</h1>
-      <ul>
-        <li>
-          <Link to={`/pokemons/${result?.name}`}>
-            <h2>{result?.name.toUpperCase()}</h2>
-            <img src={result?.sprites.front_default} alt={result?.name} />
-          </Link>
-        </li>
-      </ul>
+      <section className="result-page">
+        <h1>Resultater</h1>
+        <ul>
+          {
+            //fikk feilmelding at result.name er undefined jeg spurte chatgpt at jeg har fått error og hvorda jeg kan fikse og chatgpt ambefalte meg å bruke {redult &&}
+          }
+          {result && <PokeCard key={result.name} pokemon={result} />}
+        </ul>
+      </section>
     </>
   );
 }
